@@ -1,0 +1,32 @@
+body
+{
+  background-color: #eeeeee;
+  background-repeat: repeat;      /* repeat, no-repeat */
+  background-attachment: fixed;   /* scroll, fixed */
+  background-position: top left;  /* for no-repeat setting: top/bottom, left/right */
+  margin: 2% 20% 15% 5%;            /* top, left, bottom, right or TRBL */
+
+  font-family: Playfair Display, Georgia, Serif;	/* list font names in order of preference */
+  font-weight: normal;            /* normal, bold */
+  font-style: normal;             /* normal, italic */
+  font-variant: normal;           /* normal, small-caps */
+  font-size: 18px;                /* font size */
+  color: #000000;                 /* hexadecimal RGB color code */
+  text-decoration: none;          /* none, underline, overline, line-through */
+  text-align: left;               /* left, right, center, justify */
+}
+
+.superImage
+{
+  display: block;
+	border: 1px solid #000000;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
+  width: 30%;
+}
+
+.code
+{
+  font-family: Courier, monospace;
+}

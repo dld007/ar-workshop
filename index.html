@@ -3,80 +3,101 @@
   <head>
     <meta charset="utf-8">
     <title>Introduction to AR</title>
+    <link rel=stylesheet href="index.css"/>
   </head>
   <body>
-    <div class="bigTitle">Introduction to AR</div>
-    <hr>
+    <h2>Introduction to AR</h2>
     The goal of this workshop is to provide an introduction to simulation through a simple AR web application. Thit tutorial is based on the Javascript-based AR library,
     <a href="https://github.com/jeromeetienne/AR.js">AR.js</a>, built upon the <a href="https://aframe.io/">A-Frame</a> and <a href="https://three.js.org">three.js</a> libraries.
 
     <br/><br/>
     Click <a href="ma.html">here</a> for the end-goal of the workshop.
 
-    <br/><br/>
+    <h3>Tutorial</h3>
+
     NOTE: I have inserted a couple bugs into the code to give you an opportunity to debug HTML.
 
     <br/><br/>
     Create a new Github repository and name it whatever you like. For the purposes of this workshop, I'll be referring to it as "ar-workshop" Make sure it's set to public.
-    Make a clone of the github repository on your computer.
+    Make a clone of the Github repository on your computer.
 
     <br/><br/>
-    Create a new file named "index.html". When you run/deploy your application, this will be the first file that is read. Insert the following lines into your file:
+    Create a new file and name it <span class="code">index.html</span>. When you run your application, this will be the first file that is read. Insert the following lines into your file:
 
-    <blockquote>
-    <!DOCTYPE html>
-      <\html>
-      <head>
-        <title>Test AR</title>
-        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"><script>
-        <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"></script>
-      </head>
-      <body style="margin: 0; overflow: hidden;">
-        <\a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+    <div class="code">
+      <pre>
+        <code>
+    &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;Test AR&lt;/title&gt;
+        &lt;script src="https://aframe.io/releases/1.2.0/aframe.min.js"&gt;&lt;script&gt;
+        &lt;script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"&gt;&lt;/script&gt;
+      &lt;/head&gt;
+      &lt;body style="margin: 0; overflow: hidden;"&gt;
+        &lt;a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"&gt;
 
-        <\a-entity camera></a-entity>
-      <\/body>
-      <\/html>
-    </blockquote>
+        &lt;a-entity camera&gt;&lt;/a-entity&gt;
+      &lt;/body&gt;
+      &lt;/html&gt;
+        </code>
+      </pre>
+    </div>
 
     Let's break this down piece by piece.
 
+    <br/><br/>
     The first part of this defines your HTML file. You have your header, which defines the title of your page, and two scripts. Since HTML is a markup language, it cannot run any logic
-    besides text formatting. Thus, in order to use the AR.js library, we need to embed a couple javascript files so that the application knows to run those scripts.
+    besides text formatting. Thus, in order to use the AR.js library, we need to embed a couple of Javascript files so that the application knows to run those scripts, and where to get them from.
 
-    The second part of the block defines the body of the HTML file. Right now, we have just said that we want to initialize arjs and we want to use the camera of our current device.
+    <br/><br/>
+    The second part of the block defines the body of the HTML file. Right now, we have just said that we want to initialize AR.js and we want to use the camera of our current device.
 
-    In order to view our Magnemite, we'll want to do a couple things first. First, you'll need to generate a pattern (.patt) file from whatever image you want to use as your marker. For simplicity,
-    you may download <a href="https://github.com/dld007/ar-workshop/blob/main/data/hiro.patt">this file</a> to use the pattern provided. You may add it to your repo wherever you'd like,
-    but I recommend creating a "data" folder and adding it inside there. Now, AR.js knows that if your camera sees that pattern, or image, it will display whatever you've instructed it to.
+    <br/><br/>
+    In order to view our model, we'll need two new folders. A <span class="code">data</span> folder, and an <span class="code">assets</span> folder.
 
-    Next, we'll want to include the model we want to display when the marker is seen. Create an "assets" folder. Unzip <a href="https://raw.githack.com/nicolocarpignoli/location-based-ar-tutorial/master/static-on-html/assets/magnemite.zip">this</a>
+    <br/><br/>
+    First, you'll need to generate a pattern (.patt) file from whatever image you want to use as your marker. For simplicity,
+    you may download <a href="https://github.com/dld007/ar-workshop/blob/main/data/hiro.patt">this file</a> to use the pattern provided. Place <span class="code">hiro.patt</span> in your data folder.
+    We will use this to configure AR.js to know that if your camera sees that pattern, or image, it will display whatever model you've instructed it to.
+
+    <br/><br/>
+    Next, we'll want to include the model we want to display when the marker is seen. Unzip <a href="https://raw.githack.com/nicolocarpignoli/location-based-ar-tutorial/master/static-on-html/assets/magnemite.zip">this</a>
     and add it to the "assets" folder. Your folder structure should now look something like this:
-    *insert image here*
+    <img src="images/folder-structure.png" class="superImage"/>
 
-    Now that we have everything, let's add a marker. Underneath the a-scene tag, add the following line:
-    <blockquoteq>
-      <\a-marker type="pattern" url="data/hiro.patt">
-        <\a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" animation-mixer><\/a-entity>
-      <\/a-marker>
-    </blockquote>
+    <br/><br/>
+    Now that we have everything, let's add a marker. Underneath the a-scene tag, add the following lines:
+
+      <pre>
+        <code>
+          &lt;a-marker type="pattern" url="data/hiro.patt"&gt;
+            &lt;a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" animation-mixer&gt;&lt;/a-entity&gt;
+          &lt;/a-marker&gt;
+        </code>
+      </pre>
 
     Let's break this code down again. The a-marker tag says that we want to use a pattern as our marker and the url is the location of the pattern file relative to our repo.
     Inside our a-marker tag, we also define an a-entity. We set the gltf-model to the magnemite model. Rotation rotates the magnemite to be facing the user. Scale makes the
     model smaller than its original size. And animation-mixer tells the model to use its own in-built animation.
 
-    Now let's try to run this. Go back to your repository in github and go to Settings->Pages and enable github pages. Set the source to "Deploy from a branch" and set that branch
+    <br/><br/>
+    Now let's try to run this. Go back to your repository in Github and go to Settings->Pages and enable Github Pages. Set the source to "Deploy from a branch" and set that branch
     to main. Commit and push to your repository. You should now be able to access your application at "https://<\your-username>.github.io/ar-workshop". I would recommend
     accessing this on your computer first. As I said previously, there are a couple of minor bugs. When you notice your application not working properly, right click the page
-    and click "Inspect" to see the contents of your file and see the console log to see what errors occurred while reading your file.
+    and click "Inspect" to see the contents of your file and view the console log to see what errors occurred while reading your file.
 
+    <br/><br/>
     Once you have fixed the issues, you may now open up your application on your mobile phone and test it out! There are numerous variations from here. You can make multiple
-    markers using different patterns, you can use different models so that instead of Magnemite, you have Pikachu floating around instead. The options are limitless.
+    markers using different patterns, you can use different models so that instead of Magnemite, you have Pikachu floating around. The options are limitless.
 
-    For more documentation and references used during the making of this workshop, see:
-    <a href="https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564"</a>
-    <a href="https://www.youtube.com/watch?v=XFGzaKya1Xs&t=278s"</a>
-    <a href="https://stemkoski.github.io/AR.js-examples/index.html"</a>
-
+    <br/><br/>
+    For more documentation on AR.js, as well as references used during the making of this workshop, see:
+    <ul>
+      <li><a href="https://ar-js-org.github.io/AR.js-Docs/marker-based/">Official AR.js Documentation</a></li>
+      <li><a href="https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564">Build Your Location-Based Augmented Reality Web App</a></li>
+      <li><a href="https://www.youtube.com/watch?v=XFGzaKya1Xs&t=278s">Show Webpage in Augmented Reality using AR.js</a></li>
+      <li><a href="https://stemkoski.github.io/AR.js-examples/index.html">More AR.js Examples</a></li>
+    </ul>
   </body>
 </html>
