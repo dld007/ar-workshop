@@ -12,11 +12,8 @@
 
     <br/><br/>
     Click <a href="ma.html">here</a> for the end-goal of the workshop.
-    Click <a href="badCode.html">here</a> for bad code test.
 
     <h3>Tutorial</h3>
-
-    NOTE: I have inserted a couple bugs into the code to give you an opportunity to debug HTML.
 
     <br/><br/>
     Create a new Github repository and name it whatever you like. For the purposes of this workshop, I'll be referring to it as "ar-workshop" Make sure it's set to public.
@@ -32,13 +29,14 @@
       &lt;html&gt;
       &lt;head&gt;
         &lt;title&gt;Test AR&lt;/title&gt;
-        &lt;script src="https://aframe.io/releases/1.2.0/aframe.min.js"&gt;&lt;script&gt;
+        &lt;script src="https://aframe.io/releases/1.2.0/aframe.min.js"&gt;&lt;/script&gt;
         &lt;script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body style="margin: 0; overflow: hidden;"&gt;
         &lt;a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"&gt;
 
         &lt;a-entity camera&gt;&lt;/a-entity&gt;
+        &lt;/a-scene&gt;
       &lt;/body&gt;
       &lt;/html&gt;
         </code>
@@ -84,8 +82,7 @@
 
     <br/><br/>
     Now let's try to run this. Go back to your repository in Github and go to Settings->Pages and enable Github Pages. Set the source to "Deploy from a branch" and set that branch
-    to main. Commit and push to your repository. You should now be able to access your application at "https://<\your-username>.github.io/ar-workshop". I would recommend
-    accessing this on your computer first. As I said previously, there are a couple of minor bugs. When you notice your application not working properly, right click the page
+    to main. Commit and push to your repository. You should now be able to access your application at "https://<\your-username>.github.io/ar-workshop". If you notice your application not working properly, right click the page
     and click "Inspect" to see the contents of your file and view the console log to see what errors occurred while reading your file.
 
     <br/><br/>
