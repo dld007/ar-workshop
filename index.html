@@ -29,11 +29,11 @@
       &lt;html&gt;
       &lt;head&gt;
         &lt;title&gt;Test AR&lt;/title&gt;
-        &lt;script src="https://aframe.io/releases/1.2.0/aframe.min.js"&gt;&lt;/script&gt;
-        &lt;script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.1.7/aframe/build/aframe-ar.js"&gt;&lt;/script&gt;
+        &lt;script src="https://aframe.io/releases/1.3.0/aframe.min.js"&gt;&lt;/script&gt;
+        &lt;script src="https://raw.githack.com/AR-js-org/AR.js/dev/aframe/build/aframe-ar.js"&gt;&lt;/script&gt;
       &lt;/head&gt;
       &lt;body style="margin: 0; overflow: hidden;"&gt;
-        &lt;a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;"&gt;
+        &lt;a-scene embedded arjs&gt;
 
         &lt;a-entity camera&gt;&lt;/a-entity&gt;
         &lt;/a-scene&gt;
@@ -70,8 +70,13 @@
 
       <pre>
         <code>
-          &lt;a-marker type="pattern" url="data/hiro.patt"&gt;
-            &lt;a-entity gltf-model="./assets/magnemite/scene.gltf" rotation="0 180 0" scale="0.15 0.15 0.15" animation-mixer&gt;&lt;/a-entity&gt;
+          &lt;a-marker preset="hiro"&gt;
+            &lt;a-entity
+            position="0 0 0"
+            rotation="0 0 0"
+            scale="0.05 0.05 0.05"
+            gltf-model="assets/magnemite/scene.gltf"
+            &gt;&lt;/a-entity&gt;
           &lt;/a-marker&gt;
         </code>
       </pre>
@@ -93,6 +98,7 @@
     For more documentation on AR.js, as well as references used during the making of this workshop, see:
     <ul>
       <li><a href="https://ar-js-org.github.io/AR.js-Docs/marker-based/">Official AR.js Documentation</a></li>
+      <li><a href"https://github.com/AR-js-org">AR.js Github</a></li>
       <li><a href="https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564">Build Your Location-Based Augmented Reality Web App</a></li>
       <li><a href="https://www.youtube.com/watch?v=XFGzaKya1Xs&t=278s">Show Webpage in Augmented Reality using AR.js</a></li>
       <li><a href="https://stemkoski.github.io/AR.js-examples/index.html">More AR.js Examples</a></li>
