@@ -53,17 +53,11 @@
     The second part of the block defines the body of the HTML file. Right now, we have just said that we want to initialize AR.js and we want to use the camera of our current device.
 
     <br/><br/>
-    In order to view our model, we'll need two new folders. A <span class="code">data</span> folder, and an <span class="code">assets</span> folder.
-
-    <br/><br/>
-    First, you'll need to generate a pattern (.patt) file from whatever image you want to use as your marker. For simplicity,
-    you may download <a href="https://github.com/dld007/ar-workshop/blob/main/data/hiro.patt">this file</a> to use the pattern provided. Place <span class="code">hiro.patt</span> in your data folder.
-    We will use this to configure AR.js to know that if your camera sees that pattern, or image, it will display whatever model you've instructed it to.
+    In order to view our model, we'll need to create a new folder, and call it <span class="code">assets</span>.
 
     <br/><br/>
     Next, we'll want to include the model we want to display when the marker is seen. Unzip <a href="https://raw.githack.com/nicolocarpignoli/location-based-ar-tutorial/master/static-on-html/assets/magnemite.zip">this</a>
-    and add it to the "assets" folder. Your folder structure should now look something like this:
-    <img src="images/folder-structure.png" class="superImage"/>
+    and add it to the "assets" folder.
 
     <br/><br/>
     Now that we have everything, let's add a marker. Underneath the a-scene tag, add the following lines:
@@ -73,7 +67,7 @@
           &lt;a-marker preset="hiro"&gt;
             &lt;a-entity
             position="0 0 0"
-            rotation="0 0 0"
+            rotation="0 180 0"
             scale="0.05 0.05 0.05"
             gltf-model="assets/magnemite/scene.gltf"
             &gt;&lt;/a-entity&gt;
@@ -81,9 +75,8 @@
         </code>
       </pre>
 
-    Let's break this code down again. The a-marker tag says that we want to use a pattern as our marker and the url is the location of the pattern file relative to our repo.
-    Inside our a-marker tag, we also define an a-entity. We set the gltf-model to the magnemite model. Rotation rotates the magnemite to be facing the user. Scale makes the
-    model smaller than its original size. And animation-mixer tells the model to use its own in-built animation.
+    Let's break this code down again. The a-marker tag says that we want to use the default "hiro" marker. This is a AR.js preset, and can be found and downloaded <a href="https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png">here</a>. We set the gltf-model to the magnemite model. Rotation rotates the magnemite to be facing the user. Scale makes the
+    model smaller than its original size. Finally, animation-mixer tells the model to use its own in-built animation.
 
     <br/><br/>
     Now let's try to run this. Go back to your repository in Github and go to Settings->Pages and enable Github Pages. Set the source to "Deploy from a branch" and set that branch
