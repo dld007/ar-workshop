@@ -67,7 +67,7 @@
           &lt;a-marker preset="hiro"&gt;
             &lt;a-entity
             position="0 0 0"
-            rotation="0 180 0"
+            rotation="0 0 0"
             scale="0.05 0.05 0.05"
             gltf-model="assets/magnemite/scene.gltf"
             &gt;&lt;/a-entity&gt;
@@ -75,7 +75,8 @@
         </code>
       </pre>
 
-    Let's break this code down again. The a-marker tag says that we want to use the default "hiro" marker. This is a AR.js preset, and can be found and downloaded <a href="https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png">here</a>. We set the gltf-model to the magnemite model. Rotation rotates the magnemite to be facing the user. Scale makes the
+    Let's break this code down again. The a-marker tag says that we want to use the default "hiro" marker. This is a AR.js preset, and can be found and downloaded <a href="https://commons.wikimedia.org/wiki/File:Hiro_marker_ARjs.png">here</a>.
+    We set the gltf-model to the Magnemite model. The rotation tag says that we do not want to rotate the model. Scale makes the
     model smaller than its original size. Finally, animation-mixer tells the model to use its own in-built animation.
 
     <br/><br/>
@@ -84,14 +85,14 @@
     and click "Inspect" to see the contents of your file and view the console log to see what errors occurred while reading your file.
 
     <br/><br/>
-    Once you have fixed the issues, you may now open up your application on your mobile phone and test it out! There are numerous variations from here. You can make multiple
+    You can now open up your application on your mobile phone and test it out! There are numerous variations from here. You can make multiple
     markers using different patterns, you can use different models so that instead of Magnemite, you have Pikachu floating around. The options are limitless.
 
     <br/><br/>
     For more documentation on AR.js, as well as references used during the making of this workshop, see:
     <ul>
       <li><a href="https://ar-js-org.github.io/AR.js-Docs/marker-based/">Official AR.js Documentation</a></li>
-      <li><a href"https://github.com/AR-js-org">AR.js Github</a></li>
+      <li><a href="https://github.com/AR-js-org">AR.js Github</a></li>
       <li><a href="https://medium.com/chialab-open-source/build-your-location-based-augmented-reality-web-app-c2442e716564">Build Your Location-Based Augmented Reality Web App</a></li>
       <li><a href="https://www.youtube.com/watch?v=XFGzaKya1Xs&t=278s">Show Webpage in Augmented Reality using AR.js</a></li>
       <li><a href="https://stemkoski.github.io/AR.js-examples/index.html">More AR.js Examples</a></li>
